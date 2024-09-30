@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+</head>
+<body>
+    <pagename>
+        {% block pagename %}
+        <p>  <h1>{{title}}</h1> </p>
+        {% endblock %}
+    </pagename>
+    <pagename>
+       {% block registration %}
+            <li> <a href="reg_page_django"> Регистрация (Django)<a> </li>
+            <li> <a href="reg_page_html"> Регистрация (html)<a> </li>
+        {% endblock %}
+    </pagename>
+
+    <menu>
+        {% block menu %}
+            <li> <a href="#">  Главная</a>  </li>
+            <li> <a href="/games">  Магазин</a> </li>
+            <li> <a href="cart">  Корзина</a> </li>
+        {% endblock %}
+
+
+    </menu>
+
+    <p>--------------------------------------------------------</p>
+
+    <content>
+        {% block content %}
+        <p>  Здесь будет CONTENT </p>
+        {% endblock %}
+    </content>
+
+
+</body>
+
+</html>
