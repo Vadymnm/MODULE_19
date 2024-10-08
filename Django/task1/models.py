@@ -19,6 +19,5 @@ class Game(models.Model):
     age_limited = models.BooleanField()
     buyer = models.ManyToManyField(Buyer, blank=True)
 
-
     def __str__(self):
         return self.title
