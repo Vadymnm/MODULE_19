@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>My Title</title>
+</head>
+<body>
+
+    <h1>Список постов</h1>
+    <form method="POST">
+        {% csrf_token %}
+    <label for="number"> * Введите количество постов на странице: </label>
+        <input type="int" id="number" name="number" maxlength="3" required>
+<!--            <br>-->
+        <button type="submit"> Отправить данные</button>
+    </form>
+
+
+    <ul>
+        {% for post in page_obj %}
+            <li>
+                <h3>{{post.title}}({{ '- created -' }}{{post.created_at}})</h3>-->
+                <h5>{{'post.content:'}} {{ post.content }}</h5>
+            </li>
+        {% empty %}
+            <p> Нет постов.</p>
+        {% endfor %}
+    </ul>
+
+ <!-- пагинатор -->
+    <div class="pagination">
+        <h6>Страницы:</h6>
+        <ul>
+            {% if page_obj.has_previous %}
+                <li><a href="?page=1"><<</a></li>
+                <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+            {% endif %}
+            <li>{{ page_obj.number }}/{{ paginator.num_pages }}</li>
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                <li><a href="?page={{ paginator.num_pages }}">>>></a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+{% block content %}
+    <ul>
+        <p>
+        <button> <a href="http://127.0.0.1:8000/">Вернуться на главную </a> </button>
+        </p>
+    </ul>{% endblock %}
+
+</body>
+</html>
+

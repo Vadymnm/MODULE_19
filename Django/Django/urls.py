@@ -35,19 +35,34 @@ Including another URLconf
 
 # ======= task_19-2 ===================
 
+#
+# from django.contrib import admin
+# from django.urls import path
+# from task1.views import games, main, reg_page_django, reg_page_html
+# from django.views.generic import TemplateView
+#
+#
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', main),
+#     path('games/',games),
+#     path('cart/', TemplateView.as_view(template_name='cart.html')),
+#     path('reg_page_django/', reg_page_django),
+#     path('reg_page_html/', reg_page_html),
+#
+# ]
+
+# ======= task_19-3 ===================
+
 
 from django.contrib import admin
 from django.urls import path
-from task1.views import games, main, reg_page_django, reg_page_html
-from django.views.generic import TemplateView
+from task3 import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main),
-    path('games/',games),
-    path('cart/', TemplateView.as_view(template_name='cart.html')),
-    path('reg_page_django/', reg_page_django),
-    path('reg_page_html/', reg_page_html),
+    path('', views.start),
+    path('index/', views.index),
 
 ]
