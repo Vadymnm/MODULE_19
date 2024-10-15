@@ -52,17 +52,15 @@ Including another URLconf
 #
 # ]
 
-# ======= task_19-3 ===================
+
+# ======= task_19-5 ===================
 
 
 from django.contrib import admin
 from django.urls import path
-from task3 import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.start),
-    path('index/', views.index),
 
 ]
